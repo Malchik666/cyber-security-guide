@@ -4,8 +4,8 @@
 
 Проект создан для повышения осведомлённости IT-специалистов, владельцев сайтов и обычных пользователей о современных угрозах и способах их предотвращения.
 
-🔗 **Демо (Vercel):** *[ваш-проект].vercel.app*  
-📦 **Репозиторий:** *[ссылка на ваш GitHub]*
+🔗 **Демо (Vercel):** https://cyber-security-guide.vercel.app  
+📦 **Репозиторий:** https://github.com/Malchik666/cyber-security-guide
 
 ---
 
@@ -58,6 +58,7 @@
 ## 📥 Установка и запуск локально
 
 1. Клонируйте репозиторий:
+
    ```bash
-   git clone https://github.com/ваш-аккаунт/cyber-security-guide.git
+   git clone https://github.com/Malchik666/cyber-security-guide.git
    cd cyber-security-guide
