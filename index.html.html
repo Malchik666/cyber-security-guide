@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberGuard | Кибербезопасность для всех</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0f18;
+      color: #e0e4f0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(10, 15, 24, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #00ff88, #00cc66);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: #c0c8e0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: #00ff88;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
+      background: linear-gradient(135deg, #0a0f18 0%, #111827 100%);
+      border-bottom: 1px solid rgba(0, 255, 0, 0.1);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff, #00ff88);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #9ca3af;
+      max-width: 700px;
+      margin: 0 auto 32px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    /* Cards */
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 48px 0 32px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .grid-2, .grid-3 {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .card {
+      background: rgba(20, 30, 45, 0.6);
+      backdrop-filter: blur(4px);
+      border-radius: 24px;
+      padding: 28px;
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      transition: all 0.3s;
+    }
+
+    .card:hover {
+      border-color: #00ff88;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 16px;
+      color: #00ff88;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      margin: 16px 0 0;
+    }
+
+    .card li {
+      margin: 8px 0;
+      color: #cbd5e6;
+    }
+
+    .warning {
+      background: rgba(255, 100, 100, 0.1);
+      border-left: 4px solid #ff5555;
+    }
+
+    .warning h3 {
+      color: #ff8888;
+    }
+
+    .success {
+      background: rgba(0, 255, 136, 0.05);
+      border-left: 4px solid #00ff88;
+    }
+
+    /* Таблица */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 32px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(20, 30, 45, 0.5);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+    }
+
+    th {
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      background: #05080f;
+      padding: 48px 0 24px;
+      margin-top: 64px;
+      border-top: 1px solid rgba(0, 255, 136, 0.1);
+      text-align: center;
+      color: #6c7a8a;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #00ff88;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .container { padding: 0 16px; }
+      .nav { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo">🛡️ CyberGuard</div>
+      <div class="nav">
+        <a href="#">Главная</a>
+        <a href="#ddos">DDoS защита</a>
+        <a href="#webhack">Веб защита</a>
+        <a href="#tools">Инструменты</a>
+        <a href="#geo">Гео-риски</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="badge">📡 Кибербезопасность для всех</div>
+      <h1>Защити себя и свой бизнес<br>от цифровых угроз</h1>
+      <p>Актуальные методы защиты от DDoS-атак, взлома, фишинга и других киберугроз. Полное руководство для IT-специалистов и обычных пользователей.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- DDoS ЗАЩИТА -->
+    <h2 class="section-title" id="ddos">🛡️ Защита от DDoS-атак</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>⚡ Что такое DDoS?</h3>
+        <p>DDoS (распределённая атака типа «отказ в обслуживании») — это попытка сделать ресурс недоступным для легальных пользователей путём перегрузки сервера огромным количеством запросов из множества источников. Чаще всего атакуют через ботнеты — сети заражённых устройств.</p>
+      </div>
+      <div class="card">
+        <h3>🚫 Основные методы защиты</h3>
+        <ul>
+          <li><strong>Cloudflare / AWS Shield / Akamai</strong> — профессиональная фильтрация трафика</li>
+          <li><strong>Rate limiting</strong> — ограничение частоты запросов с одного IP</li>
+          <li><strong>Балансировка нагрузки</strong> — распределение трафика между серверами</li>
+          <li><strong>Web Application Firewall (WAF)</strong> — блокировка вредоносных паттернов</li>
+          <li><strong>GeoIP-фильтрация</strong> — блокировка подозрительных регионов (при необходимости)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card success">
+        <h3>🖥️ Пример настройки nginx (rate limiting)</h3>
+        <pre style="background:#000; padding:12px; border-radius:12px; font-size:12px; overflow-x:auto;">limit_req_zone $binary_remote_addr zone=one:10m rate=10r/s;
+server {
+    location / {
+        limit_req zone=one burst=20 nodelay;
+    }
+}</pre>
+      </div>
+      <div class="card">
+        <h3>🛡️ Cloudflare WAF</h3>
+        <p>Автоматически блокирует SYN-flood, UDP-атаки, атаки на уровне приложений (HTTP). Бесплатный тариф включает базовую DDoS-защиту. Для сайтов любой сложности.</p>
+      </div>
+      <div class="card">
+        <h3>🏠 Для малого сайта</h3>
+        <p>Используйте плагины типа Wordfence (для WordPress), настройте fail2ban, подключите кэширование страниц и включите «режим ожидания» в Cloudflare (Under Attack).</p>
+      </div>
+    </div>
+
+    <!-- ВЕБ ЗАЩИТА -->
+    <h2 class="section-title" id="webhack">🔐 Защита от взлома сайтов и серверов</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>🧨 Основные уязвимости (OWASP Top 10)</h3>
+        <ul>
+          <li>🔹 SQL-инъекции</li>
+          <li>🔹 XSS (межсайтовый скриптинг)</li>
+          <li>🔹 CSRF (подделка межсайтовых запросов)</li>
+          <li>🔹 Небезопасная конфигурация</li>
+          <li>🔹 Утечка данных через debug-режим</li>
+        </ul>
+      </div>
+      <div class="card success">
+        <h3>✅ Практические советы</h3>
+        <ul>
+          <li>✔️ Используйте подготовленные запросы (параметризация)</li>
+          <li>✔️ Включите CSP (Content Security Policy)</li>
+          <li>✔️ Регулярно обновляйте все библиотеки и CMS</li>
+          <li>✔️ Отключите вывод ошибок на production</li>
+          <li>✔️ Настройте двухфакторную аутентификацию для админки</li>
+          <li>✔️ Проводите регулярные аудиты безопасности</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card warning">
+        <h3>⚠️ Пример SQL-инъекции (опасно!)</h3>
+        <p style="color:#ffaaaa;">Никогда не вставляйте данные пользователя прямо в запрос:</p>
+        <pre style="background:#1a1a1a; padding:12px; border-radius:12px;">SELECT * FROM users WHERE name = '"+user_input+"'</pre>
+        <p style="margin-top:8px;">Замените на параметризованный запрос (например, <strong>SQLAlchemy, PDO, Entity Framework</strong>).</p>
+      </div>
+      <div class="card">
+        <h3>📦 Инструменты защиты</h3>
+        <ul>
+          <li><strong>ModSecurity (WAF)</strong> — открытый WAF для Apache/Nginx</li>
+          <li><strong>ClamAV</strong> — антивирус для загружаемых файлов</li>
+          <li><strong>OSSEC</strong> — обнаружение вторжений (HIDS)</li>
+          <li><strong>Fail2ban</strong> — блокировка bruteforce</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔒 HTTPS + HSTS</h3>
+        <p>Обязательно включите HTTPS (Let's Encrypt бесплатно). Добавьте заголовок HSTS, чтобы браузер всегда обращался через защищённое соединение. Это предотвращает перехват сессий (MITM).</p>
+      </div>
+    </div>
+
+    <!-- ИНСТРУМЕНТЫ АУДИТА -->
+    <h2 class="section-title" id="tools">🧰 Инструменты для проверки безопасности</h2>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr><th>Инструмент</th><th>Тип</th><th>Что проверяет</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Nmap</td><td>Сетевое сканирование</td><td>Открытые порты, ОС, сервисы</td></tr>
+          <tr><td>Nikto</td><td>Веб-сканер</td><td>Уязвимости веб-сервера, опасные файлы</td></tr>
+          <tr><td>WPScan</td><td>WordPress</td><td>Уязвимости плагинов, тем, пользователей</td></tr>
+          <tr><td>Burp Suite</td><td>Веб-прокси</td><td>XSS, SQLi, CSRF, анализ запросов</td></tr>
+          <tr><td>Metasploit</td><td>Фреймворк</td><td>Эксплуатация уязвимостей</td></tr>
+          <tr><td>Cloudflare Radar</td><td>Анализ трафика</td><td>Аномалии, DDoS-атаки</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ГЕО-РИСКИ -->
+    <h2 class="section-title" id="geo">🌍 Особенности в России, Украине и мире</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>🇺🇦 Украина</h3>
+        <p>После 2022 года уровень DDoS-атак на государственный и банковский сектор вырос на 300-500%. Для защиты используют <strong>«Дія» Security</strong>, хостинг в облаках с защитой, а также резервные каналы связи. Рекомендовано иметь кэширующие резервные DNS и распределение серверов по Европе.</p>
+      </div>
+      <div class="card">
+        <h3>🇷🇺 Россия</h3>
+        <p>В РФ действует закон о «суверенном Рунете» и обязательной фильтрации трафика. Провайдеры блокируют подозрительные атаки, но бизнесу стоит использовать <strong>RuCenter DDoS-Guard</strong>, StormWall, Qrator. Учитывайте угрозы, связанные с блокировкой сайтов по IP.</p>
+      </div>
+      <div class="card">
+        <h3>🌍 Мировой опыт</h3>
+        <p>Во всем мире популярна защита через <strong>Anycast-сети</strong> (Cloudflare, AWS Global Accelerator). Рекомендуется следить за дайджестами CISA, иметь план реагирования на инциденты и регулярно делать бэкапы офлайн.</p>
+      </div>
+      <div class="card">
+        <h3>📌 Дополнительные меры</h3>
+        <p>Настройте мониторинг через <strong>Prometheus + Grafana</strong>. Включите уведомления при аномальном трафике. Используйте CDN для статики. Для особо важных сервисов заключите контракт с провайдером защиты от DDoS (On‑premise решения).</p>
+      </div>
+    </div>
+
+    <!-- ПОЛЕЗНЫЕ ССЫЛКИ -->
+    <div class="card" style="margin: 32px 0; background: #0c111c;">
+      <h3>📚 Полезные ресурсы</h3>
+      <ul style="display: flex; flex-wrap: wrap; gap: 16px; list-style: none; padding: 0;">
+        <li><a href="https://owasp.org/" style="color:#00ff88;">OWASP</a></li>
+        <li><a href="https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/" style="color:#00ff88;">Cloudflare Learning</a></li>
+        <li><a href="https://www.cisa.gov/" style="color:#00ff88;">CISA (USA)</a></li>
+        <li><a href="https://ssrc.gov.ua/" style="color:#00ff88;">Держспецзв’язку України</a></li>
+        <li><a href="https://www.cert.gov.ua/" style="color:#00ff88;">CERT Ukraine</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>🛡️ CyberGuard — руководство по кибербезопасности | Данные для Украины, России и мира</p>
+      <p style="margin-top: 12px;">Этот сайт носит информационный характер. Все методы защиты должны применяться в соответствии с местным законодательством.</p>
+      <p style="margin-top: 16px;">🇺🇦 Slava Ukraini | 🇷🇺 Толерантность и безопасность прежде всего</p>
+    </div>
+  </footer>
+</body>
+</html>
